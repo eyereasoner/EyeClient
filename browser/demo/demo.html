@@ -1,0 +1,25 @@
+<html>
+<head>
+  <link rel="stylesheet" href="../lib/css/jquery-ui-1.8.16.custom.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../eyeclient.css" />
+</head>
+<body>
+  <h1>EYE in your browser</h1>
+  <div class="eye">
+    <p>
+      Command to execute:
+      <code>eye <span class="data">input.n3</span>
+                <span class="data">input2.n3</span>
+                <span class="data">rules.n3</span>
+                --query <span class="query">query.n3</span> --nope</code>
+    </p>
+  </div>
+  <script src="../lib/js/jquery-1.7.1.min.js"></script>
+  <script src="../lib/js/jquery-ui-1.8.16.custom.min.js"></script>
+  <script src="../eyeclient.js"></script>
+  <script>
+    $('.eye').eye({ path: 'http://eye.restdesc.org/' });
+  </script>
+</body>
+</html>

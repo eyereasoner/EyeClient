@@ -1,0 +1,17 @@
+body {
+  font-family: Verdana, Arial, sans-serif;
+  max-width: 800px;
+  margin: 1em auto;
+}
+
+code {
+  font-family: Courier, "Courier New", monospace;
+}
+
+.ui-widget {
+  font-size: 1em;
+}
+
+.eye .old {
+  display: none;
+}

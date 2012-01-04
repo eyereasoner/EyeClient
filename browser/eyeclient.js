@@ -101,7 +101,7 @@
         // ajax succes?
         .done(function (n3) {
           // EYE failure?
-          if(n3.error)
+          if (n3.error)
             deferred.reject(n3.error);
           // EYE success!
           else
@@ -113,7 +113,7 @@
                             'HTTP error ' + response.status + ' \u2013 ' + response.statusText);
         });
     }).promise();
-  }
+  };
   
   var labels = eye.labels = {
     input: 'Input',
@@ -122,7 +122,7 @@
     executing: 'Executing EYE...',
     success: 'EYE generated $, displayed below.',
     failure: 'Error executing EYE: $.'
-  }
+  };
   
   function appendCodeTab(title, $tabList, $tabContainer, cssClass) {
     var tabId = 'eyetab' + (++tabCount),
@@ -138,7 +138,7 @@
   }
 
   function appendCodeTabFromUrl(url, $tabList, $tabContainer, cssClass) {
-    var titleMatch = /([\d\w-_]+)(?:\.[\d\w]+?)$/i.exec(url),
+    var titleMatch = /([\d\w\-_]+)(?:\.[\d\w]+?)$/i.exec(url),
         title = titleMatch ? titleMatch[1] : url,
         $tab = appendCodeTab(title, $tabList, $tabContainer, cssClass);
     $.ajax(url)

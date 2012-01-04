@@ -109,8 +109,12 @@
         })
         // ajax failure?
         .fail(function (response) {
-          deferred.reject(response.responseText.length ? response.responseText.trim() :
-                            'HTTP error ' + response.status + ' \u2013 ' + response.statusText);
+          if (response.responseText)
+            deferred.reject(response.responseText.trim());
+          else if (response.status)
+            deferred.reject('HTTP error ' + response.status + ' \u2013 ' + response.statusText);
+          else
+            deferred.reject('Unknown HTTP error. Check your connection');
         });
     }).promise();
   };

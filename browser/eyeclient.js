@@ -109,7 +109,8 @@
         })
         // ajax failure?
         .fail(function (response) {
-          deferred.reject(response.responseText);
+          deferred.reject(response.responseText.length ? response.responseText :
+                            'HTTP error ' + response.status + ' \u2013 ' + response.statusText);
         });
     }).promise();
   }
@@ -120,7 +121,7 @@
     execute: 'Execute EYE',
     executing: 'Executing EYE...',
     success: 'EYE generated $, displayed below.',
-    failure: 'EYE did not succeed: $.'
+    failure: 'Error executing EYE: $.'
   }
   
   function appendCodeTab(title, $tabList, $tabContainer, cssClass) {

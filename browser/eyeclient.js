@@ -105,11 +105,11 @@
             deferred.reject(n3.error);
           // EYE success!
           else
-            deferred.resolve(n3);
+            deferred.resolve(n3.trimRight());
         })
         // ajax failure?
         .fail(function (response) {
-          deferred.reject(response.responseText.length ? response.responseText :
+          deferred.reject(response.responseText.length ? response.responseText.trim() :
                             'HTTP error ' + response.status + ' \u2013 ' + response.statusText);
         });
     }).promise();
@@ -143,7 +143,7 @@
         $tab = appendCodeTab(title, $tabList, $tabContainer, cssClass);
     $.ajax(url)
       .done(function (n3) {
-        $tab.val(n3);
+        $tab.val(n3.trimRight());
         $tab.data('link').attr('title', url);
       })
       .fail(function () {
